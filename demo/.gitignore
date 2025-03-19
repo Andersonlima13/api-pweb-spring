@@ -3,6 +3,10 @@ target/
 !.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
+demo/src/main/resources/bd-controle-gastos-firebase-adminsdk-fbsvc-21f4dff4e8.json
+
+
+
 
 ### STS ###
 .apt_generated
