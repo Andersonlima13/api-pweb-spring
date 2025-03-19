@@ -1,17 +1,19 @@
 package com.apicontrole.demo.model;
 
 public class Usuario {
+
     private String nome;
     private String email;
+    private String password;
 
-    public Usuario() {
-    }
-
-    public Usuario(String nome, String email) {
+    // Construtor
+    public Usuario(String nome, String email, String password) {
         this.nome = nome;
         this.email = email;
+        this.password = password;
     }
 
+    // Getters e Setters
     public String getNome() {
         return nome;
     }
@@ -26,5 +28,13 @@ public class Usuario {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }
