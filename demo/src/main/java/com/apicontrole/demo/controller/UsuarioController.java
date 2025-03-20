@@ -16,6 +16,7 @@ public class UsuarioController {
     @Autowired
     private FirebaseService firebaseService;
 
+    // Método para criar usuário
     @PostMapping("/criar")
     public ResponseEntity<Map<String, String>> criarUsuario(@RequestBody Usuario usuario) {
         // Logando os dados recebidos
@@ -33,4 +34,23 @@ public class UsuarioController {
             return ResponseEntity.status(500).body(response);
         }
     }
+
+    /// login user
+    @PostMapping("/login")
+    public ResponseEntity<Map<String, String>> loginUsuario(@RequestBody Usuario usuario) {
+        System.out.println("Recebendo login: " + usuario.getEmail() + ", " + usuario.getPassword());
+
+        boolean loginValido = firebaseService.verificarUsuario(usuario.getEmail(), usuario.getPassword());
+
+        Map<String, String> response = new HashMap<>();
+
+        if (loginValido) {
+            response.put("message", "Login bem-sucedido!");
+            return ResponseEntity.ok(response); // Resposta com sucesso no login
+        } else {
+            response.put("message", "Credenciais inválidas!");
+            return ResponseEntity.status(401).body(response); // Erro caso as credenciais sejam inválidas
+        }
+    }
+
 }
